@@ -1,1 +1,147 @@
-body
+/* CSS Variables for easy reuse */
+:root {
+    --main-color: #4a249d;
+    --second-color: #009fbd;
+    --third-color: #b51b7a;
+    --fourth-color: #698474;
+    --font-size-large: 2rem;
+    --font-size-medium: 1.5rem;
+    --font-size-small: 1rem;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--main-color);
+}
+
+/* Navbar styles */
+#navbar {
+    background-color: var(--second-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    justify-content: center;
+}
+
+#navbar ul li {
+    margin: 0 1rem;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-size-medium);
+}
+
+#navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Welcome Section styles */
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+#welcome-section h1 {
+    font-size: var(--font-size-large);
+    margin-bottom: 1rem;
+}
+
+#welcome-section h2 {
+    font-size: var(--font-size-medium);
+    line-height: 1.5;
+    max-width: 800px;
+}
+
+/* Projects Section styles */
+#projects {
+    padding: 2rem;
+    background-color: var(--fourth-color);
+}
+
+#projects h2 {
+    text-align: center;
+    font-size: var(--font-size-large);
+    color: var(--second-color);
+}
+
+.project-tile {
+    background-color: white;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+    transition: transform 0.2s;
+}
+
+.project-tile:hover {
+    transform: scale(1.05);
+}
+
+/* Flexbox for Project Gallery */
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-tile a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.project-tile a h3 {
+    margin: 0;
+    font-size: var(--font-size-medium);
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column;
+    }
+    .project-tile {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+/* CSS Grid example */
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+/* CSS Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#projects {
+    animation: fadeIn 1s ease-in-out;
+}
